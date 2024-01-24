@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="models.Partida" table="partida"
+		catalog="ajedrez">
+		<id name="Id" type="int">
+			<column name="Id" />
+			<generator class="assigned" />
+		</id>
+		<property name="Movimientos" type="int">
+			<column name="Movimientos" />
+		</property>		
+		<property name="Ano" type="int">
+			<column name="Ano" />
+		</property>	
+		
+		<many-to-one name="JugadorBlancas" class="models.Jugador" fetch="select">
+			<column name="Id_Jugador_Blancas" not-null="true"></column>
+		</many-to-one>
+		
+		<many-to-one name="JugadorNegras" class="models.Jugador" fetch="select">
+			<column name="Id_Jugador_Negras" not-null="true"></column>
+		</many-to-one>
+		
+		<many-to-one name="resultado" class="models.Resultado" fetch="select">
+			<column name="Id_Resultado" not-null="true"></column>
+		</many-to-one>
+		
+		<many-to-one name="apertura" class="models.Apertura" fetch="select">
+			<column name="Id_Apertura" not-null="true"></column>
+		</many-to-one>
+					
+	</class>
+</hibernate-mapping>

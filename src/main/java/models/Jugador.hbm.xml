@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="models.Jugador" table="jugador"
+		catalog="ajedrez">
+		<id name="Id" type="int">
+			<column name="Id" />
+			<generator class="assigned" />
+		</id>
+		<property name="Nombre" type="string">
+			<column name="Nombre" length="50" />
+		</property>		
+		<property name="Fecha_Nacimiento" type="string">
+			<column name="Fecha_Nacimiento" length="8" />
+		</property>	
+		
+		<many-to-one name="PaisOrigen" class="models.Pais" fetch="select">
+			<column name="Id_Pais" not-null="true"></column>
+		</many-to-one>
+		
+		<set name="partidasBlancas" table="partida" inverse="true" lazy="true" fetch="select">
+			<key>
+				<column name="Id_Jugador_Blancas"></column>
+			</key>
+			<one-to-many class="models.Partida"/>
+		</set>
+		
+		<set name="partidasNegras" table="partida" inverse="true" lazy="true" fetch="select">
+			<key>
+				<column name="Id_Jugador_Negras"></column>
+			</key>
+			<one-to-many class="models.Partida"/>
+		</set>
+					
+	</class>
+</hibernate-mapping>

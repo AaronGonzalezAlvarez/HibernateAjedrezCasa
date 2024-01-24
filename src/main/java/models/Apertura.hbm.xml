@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="models.Apertura" table="apertura"
+		catalog="ajedrez">
+		<id name="Id" type="string">
+			<column name="Id" length="1" />
+			<generator class="assigned" />
+		</id>
+		<property name="Nombre" type="string">
+			<column name="Nombre" length="30" />
+		</property>	
+		
+		<set name="partidas" table="partida" inverse="true" lazy="true" fetch="select">
+			<key>
+				<column name="Id_Apertura"></column>
+			</key>
+			<one-to-many class="models.Partida"/>
+		</set>			
+	</class>
+</hibernate-mapping>
