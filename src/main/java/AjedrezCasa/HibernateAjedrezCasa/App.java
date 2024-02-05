@@ -40,7 +40,9 @@ public class App
 	//service.HQL4();
 	//service.HQL5();
 	//service.HQL6();
-	service.HQL7();
+	//service.HQL7();
+	
+	service.update1(1290232, "N");
 	
     }
 }
