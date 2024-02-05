@@ -1,5 +1,6 @@
 package AjedrezCasa.HibernateAjedrezCasa;
 
+import dao.Service;
 import models.Apertura;
 import models.Jugador;
 import models.Pais;
@@ -29,7 +30,17 @@ public class App
 	/*var resultado = sf.openSession().get(Resultado.class, "X");
 	System.out.println(resultado);*/
 	
-	var apertura = sf.openSession().get(Apertura.class, "C42");
-	System.out.println(apertura);
+//	var apertura = sf.openSession().get(Apertura.class, "C42");
+//	System.out.println(apertura);
+	
+	Service service = new Service();
+	//service.HQL1();
+	//service.HQL2();
+	//service.HQL3();
+	//service.HQL4();
+	//service.HQL5();
+	//service.HQL6();
+	service.HQL7();
+	
     }
 }
